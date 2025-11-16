@@ -67,3 +67,9 @@ class basePage:
         actions.perform()
 
         time.sleep(duration / 1000)
+
+
+    def open_burger_menu(self):
+        selector_id="test-Menu"
+        burger_menu=self.waits.wait_for_clickable((AppiumBy.ACCESSIBILITY_ID,selector_id))
+        burger_menu.click()
