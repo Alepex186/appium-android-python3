@@ -63,3 +63,11 @@ class productsPage(basePage):
             assert super().get_visibility_element(f'new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text("{product["price"]}"))',AppiumBy.ANDROID_UIAUTOMATOR) is not None
 
             self.context.driver.back()
+
+    def add_product_to_cart(self):
+        try:
+            first_product = super().get_clickable_element('new UiSelector().description("test-Articulo")', AppiumBy.ANDROID_UIAUTOMATOR)
+            add_to_cart_button = first_product.find_element(AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().description("test-AÑADIR A CARRITO")')
+            add_to_cart_button.click()
+        except Exception as e:
+            raise Exception(f"No se pudo encontrar el botón para agregar producto al carrito: {e}")

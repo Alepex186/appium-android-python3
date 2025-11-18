@@ -21,3 +21,9 @@ def step_impl(context):
     products_page:productsPage=context.products_page
 
     products_page.verify_products(context.productos_list)
+
+
+@When("El usuario agrega un producto al carrito")
+def step_impl(context):
+    products_page:productsPage=context.products_page
+    products_page.add_product_to_cart()    

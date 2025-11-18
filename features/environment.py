@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 import os
 from appium.options.android import UiAutomator2Options
 from appium import webdriver
+from pages.cartPage import cartPage
 from pages.loginPage import loginPage
 from pages.loginHelper import loginHelper
 from pages.productsPage import productsPage
@@ -49,6 +50,7 @@ def before_scenario(context, scenario):
     context.login_helper = loginHelper(context.login_page)
     context.products_page = productsPage(context, 10)
     context.logout_page=logoutPage(context,10)
+    context.cart_page=cartPage(context,10)
 
 def after_all(context):
     context.driver.quit()
